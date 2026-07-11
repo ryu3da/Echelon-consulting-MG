@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>戦略MG研修のご案内 | ECHELON CONSULTING</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1a2456; --navy-deep: #111a3e; --navy-mid: #243066;
+      --gold: #b8996a; --gold-light: #d4b88a;
+      --off-white: #f6f4f0; --warm-white: #faf9f7;
+      --text: #1c1c1e; --text-mid: #3a3a3c; --text-light: #6e6e73;
+      --border: #e0ddd8;
+      --red: #a85a4f;
+    }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: var(--text); background: var(--warm-white); font-weight: 300; line-height: 1.8; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 96px; background: rgba(250,249,247,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(224,221,216,0.5); transition: background 0.3s; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-img { height: 76px; width: auto; display: block; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .nav-logo-text .main { font-family: 'Noto Serif JP', serif; font-size: 13px; font-weight: 500; color: var(--navy); letter-spacing: 0.06em; }
+    .nav-logo-text .sub { font-family: 'Cormorant Garamond', serif; font-size: 9px; font-weight: 400; letter-spacing: 0.14em; color: var(--text-light); }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.06em; color: var(--text-mid); text-decoration: none; transition: color 0.2s; white-space: nowrap; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-contact { font-size: 11px !important; color: white !important; background: var(--navy); border: 1px solid var(--navy); padding: 10px 22px; transition: background 0.2s, color 0.2s !important; }
+    .nav-contact:hover { background: var(--navy-mid) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 22px; height: 1px; background: var(--navy); display: block; }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; padding: 140px 60px 80px; }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #f6f4f0 0%, #eeeae3 100%); }
+    .hero-geo { position: absolute; right: -60px; top: 50%; transform: translateY(-50%); width: 55%; height: 130%; display: flex; flex-direction: column; }
+    .hero-geo-bar { flex: 1; background: var(--navy); opacity: 0.06; transform: skewY(-8deg); transform-origin: right center; margin: 4px 0; }
+    .hero-geo-bar:nth-child(2) { opacity: 0.04; margin-left: 80px; }
+    .hero-geo-bar:nth-child(3) { opacity: 0.03; margin-left: 160px; }
+    .hero-inner { position: relative; z-index: 1; max-width: 760px; }
+    .hero-label { font-family: 'Cormorant Garamond', serif; font-size: 12px; font-weight: 400; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 28px; }
+    .hero-title { font-family: 'Noto Serif JP', serif; font-size: clamp(32px, 5.4vw, 62px); font-weight: 300; line-height: 1.45; color: var(--navy-deep); letter-spacing: 0.04em; margin-bottom: 20px; }
+    .hero-title em { font-style: normal; font-weight: 500; }
+    .hero-sub { font-family: 'Noto Serif JP', serif; font-size: clamp(18px, 2.2vw, 24px); font-weight: 400; color: var(--navy); letter-spacing: 0.06em; margin-bottom: 32px; }
+    .hero-desc { font-size: 14px; font-weight: 300; color: var(--text-mid); line-height: 2; max-width: 540px; margin-bottom: 40px; letter-spacing: 0.03em; }
+    .hero-quickinfo { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 44px; }
+    .hero-quickinfo span { background: white; border: 1px solid var(--border); font-size: 12px; font-weight: 400; color: var(--navy); padding: 9px 18px; letter-spacing: 0.03em; }
+    .hero-cta { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 12px; background: var(--navy); color: white; text-decoration: none; font-size: 13px; font-weight: 400; letter-spacing: 0.12em; padding: 18px 44px; transition: background 0.3s; }
+    .btn-primary:hover { background: var(--navy-mid); }
+    .btn-text { display: inline-flex; align-items: center; gap: 8px; color: var(--text-mid); text-decoration: none; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .btn-text:hover { color: var(--navy); border-color: var(--navy); }
+    .hero-capacity { position: absolute; bottom: 60px; right: 60px; text-align: right; z-index: 1; }
+    .hero-capacity-num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: var(--navy); line-height: 1; }
+    .hero-capacity-num span { font-size: 16px; vertical-align: middle; }
+    .hero-capacity-label { font-size: 11px; font-weight: 300; letter-spacing: 0.1em; color: var(--text-light); margin-top: 6px; }
+    .hero-scroll { position: absolute; bottom: 60px; left: 60px; display: flex; align-items: center; gap: 16px; z-index: 1; }
+    .hero-scroll-line { width: 40px; height: 1px; background: var(--gold); }
+    .hero-scroll-text { font-size: 10px; letter-spacing: 0.25em; color: var(--text-light); text-transform: uppercase; }
+
+    /* SECTIONS */
+    section { position: relative; }
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 100px 60px; }
+    .section-label { font-family: 'Cormorant Garamond', serif; font-size: 11px; font-weight: 400; letter-spacing: 0.35em; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+    .section-title { font-family: 'Noto Serif JP', serif; font-size: clamp(24px, 3.2vw, 38px); font-weight: 300; color: var(--navy-deep); line-height: 1.5; letter-spacing: 0.04em; }
+    .section-title strong { font-weight: 500; }
+    .divider { width: 40px; height: 1px; background: var(--gold); margin: 32px 0; }
+
+    /* ABOUT MG */
+    .about { background: var(--navy-deep); color: white; }
+    .about .section-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about .section-label { color: var(--gold-light); }
+    .about .section-title { color: white; }
+    .about-text { font-size: 14px; font-weight: 300; line-height: 2.2; color: rgba(255,255,255,0.75); letter-spacing: 0.03em; }
+    .about-stats { display: flex; flex-direction: column; gap: 0; }
+    .about-stat { display: flex; align-items: baseline; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .about-stat:first-child { border-top: 1px solid rgba(255,255,255,0.12); }
+    .about-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 400; color: var(--gold-light); line-height: 1; white-space: nowrap; }
+    .about-stat-num span { font-size: 16px; }
+    .about-stat-label { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.7; letter-spacing: 0.03em; }
+    .about-banner { grid-column: 1 / -1; margin-top: 16px; text-align: center; }
+    .about-banner img { max-width: 420px; width: 100%; border-radius: 6px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); }
+
+    /* TARGET */
+    .target { background: white; }
+    .target-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 56px; background: var(--border); }
+    .target-card { background: white; padding: 44px 32px; text-align: center; }
+    .target-icon { width: 44px; height: 44px; margin: 0 auto 22px; }
+    .target-card-text { font-size: 13px; font-weight: 400; color: var(--navy); line-height: 1.8; letter-spacing: 0.02em; }
+
+    /* LEARN (pillars) */
+    .learn { background: var(--off-white); }
+    .learn-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 56px; background: var(--border); }
+    .learn-card { background: white; overflow: hidden; }
+    .learn-card-img { width: 100%; height: 170px; object-fit: cover; display: block; }
+    .learn-card-body { padding: 32px 36px 44px; }
+    .learn-card-num { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; color: var(--off-white); line-height: 1; margin-bottom: 20px; -webkit-text-stroke: 1px var(--border); }
+    .learn-card-title { font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 400; color: var(--navy); margin-bottom: 14px; letter-spacing: 0.04em; }
+    .learn-card-text { font-size: 13px; font-weight: 300; color: var(--text-light); line-height: 1.9; }
+
+    /* PROGRAM */
+    .program { background: white; }
+    .program-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 72px; margin-top: 56px; align-items: start; }
+    .program-info-table { width: 100%; border-collapse: collapse; }
+    .program-info-table tr { border-bottom: 1px solid var(--border); }
+    .program-info-table tr:first-child { border-top: 1px solid var(--border); }
+    .program-info-table th { width: 100px; padding: 20px 0; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; color: var(--navy); text-align: left; vertical-align: top; }
+    .program-info-table td { padding: 20px 0 20px 24px; font-size: 13px; font-weight: 300; color: var(--text-mid); line-height: 1.9; }
+    .timeline { display: flex; flex-direction: column; }
+    .timeline-item { display: flex; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+    .timeline-item:first-child { border-top: 1px solid var(--border); }
+    .timeline-time { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 500; color: var(--gold); min-width: 92px; letter-spacing: 0.03em; }
+    .timeline-dot-col { display: flex; flex-direction: column; align-items: center; padding-top: 4px; }
+    .timeline-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--navy); flex-shrink: 0; }
+    .timeline-text { font-size: 13px; font-weight: 300; color: var(--text-mid); line-height: 1.8; padding-top: 1px; }
+    .timeline-text strong { color: var(--navy); font-weight: 500; }
+
+    /* INSTRUCTOR */
+    .instructor { background: var(--navy-deep); color: white; }
+    .instructor .section-inner { display: grid; grid-template-columns: 260px 1fr; gap: 72px; align-items: center; }
+    .instructor-avatar { width: 100%; aspect-ratio: 3/4; background: var(--navy-mid); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .instructor-avatar-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .instructor-avatar-caption { margin-top: 20px; font-size: 11px; font-weight: 300; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); text-align: center; }
+    .instructor-content .section-label { color: var(--gold-light); }
+    .instructor-name { font-family: 'Noto Serif JP', serif; font-size: clamp(24px, 3.4vw, 36px); font-weight: 300; color: white; letter-spacing: 0.08em; margin-bottom: 6px; }
+    .instructor-role { font-size: 13px; font-weight: 300; letter-spacing: 0.06em; color: rgba(255,255,255,0.5); margin-bottom: 28px; }
+    .instructor-bio { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 2.2; letter-spacing: 0.03em; margin-bottom: 36px; }
+    .instructor-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+    .instructor-badges span { border: 1px solid rgba(255,255,255,0.25); font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.85); padding: 8px 16px; letter-spacing: 0.03em; }
+
+    /* PRICING */
+    .pricing { background: var(--off-white); }
+    .pricing-table { width: 100%; border-collapse: collapse; margin-top: 56px; background: white; }
+    .pricing-table th, .pricing-table td { padding: 22px 28px; text-align: left; border-bottom: 1px solid var(--border); }
+    .pricing-table thead th { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: white; background: var(--navy); }
+    .pricing-table tbody td { font-size: 14px; font-weight: 300; color: var(--text-mid); }
+    .pricing-table tbody tr:last-child td { border-bottom: none; color: var(--text-light); font-size: 12px; }
+    .pricing-table .price-cell { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--navy); }
+    .pricing-table .price-cell span { font-size: 12px; font-weight: 400; color: var(--text-light); margin-left: 4px; font-family: 'Noto Sans JP', sans-serif; }
+    .pricing-note { margin-top: 24px; font-size: 12px; font-weight: 300; color: var(--text-light); line-height: 1.9; }
+
+    /* NOTES (application/cancellation) */
+    .notes { background: white; }
+    .notes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 56px; }
+    .notes-block-title { font-family: 'Noto Serif JP', serif; font-size: 16px; font-weight: 400; color: var(--navy); margin-bottom: 20px; letter-spacing: 0.04em; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .notes-list { display: flex; flex-direction: column; gap: 14px; list-style: none; }
+    .notes-list li { font-size: 13px; font-weight: 300; line-height: 1.85; padding-left: 22px; position: relative; color: var(--text-mid); }
+    .notes-list li::before { content: '―'; position: absolute; left: 0; top: 0; color: var(--gold); font-weight: 400; }
+    .notes-warning { margin-top: 28px; background: var(--off-white); border-left: 3px solid var(--red); padding: 18px 22px; font-size: 12px; font-weight: 300; color: var(--text-mid); line-height: 1.9; }
+    .notes-warning strong { color: var(--red); font-weight: 500; }
+
+    /* COMPANY */
+    .company { background: var(--off-white); }
+    .company-table { width: 100%; border-collapse: collapse; margin-top: 60px; }
+    .company-table tr { border-bottom: 1px solid var(--border); }
+    .company-table tr:first-child { border-top: 1px solid var(--border); }
+    .company-table th { width: 160px; padding: 22px 0; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: var(--navy); text-align: left; vertical-align: top; }
+    .company-table td { padding: 22px 0 22px 40px; font-size: 13px; font-weight: 300; color: var(--text-mid); line-height: 2; }
+    .company-logo-row { display: flex; align-items: center; gap: 16px; margin-top: 56px; }
+    .company-logo-row img { height: 68px; width: auto; }
+    .company-logo-row-text { font-size: 12px; font-weight: 300; color: var(--text-light); line-height: 1.8; }
+
+    /* RESERVE */
+    .reserve { background: white; }
+    .reserve .section-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+    .reserve-copy { font-size: 14px; font-weight: 300; color: var(--text-mid); line-height: 2.2; margin-bottom: 40px; }
+    .reserve-info { display: flex; flex-direction: column; gap: 16px; }
+    .reserve-info-item { display: flex; gap: 16px; font-size: 13px; font-weight: 300; color: var(--text-mid); }
+    .reserve-info-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: var(--navy); min-width: 88px; flex-shrink: 0; }
+    .form-note { font-size: 11px; font-weight: 300; color: var(--text-light); line-height: 1.8; margin-top: 8px; }
+    .reserve-links { display: flex; flex-direction: column; gap: 16px; }
+    .reserve-link-card { background: var(--off-white); border: 1px solid var(--border); padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .reserve-link-date { font-family: 'Noto Serif JP', serif; font-size: 15px; font-weight: 400; color: var(--navy); letter-spacing: 0.03em; }
+    .reserve-link-type { font-size: 12px; font-weight: 400; color: var(--gold); letter-spacing: 0.06em; margin-top: 6px; }
+    .btn-submit-link { display: inline-flex; align-items: center; gap: 10px; background: var(--navy); color: white; text-decoration: none; font-size: 13px; font-weight: 400; letter-spacing: 0.1em; padding: 14px 28px; transition: background 0.3s; white-space: nowrap; }
+    .btn-submit-link:hover { background: var(--navy-mid); }
+
+    /* FOOTER */
+    footer { background: var(--navy-deep); padding: 60px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; }
+    .footer-logo { display: flex; align-items: center; gap: 12px; background: white; padding: 12px 18px; border-radius: 4px; }
+    .footer-logo-img { height: 38px; width: auto; display: block; }
+    .footer-meta { text-align: right; }
+    .footer-address { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.4); line-height: 2; margin-bottom: 8px; }
+    .footer-copy { font-size: 10px; font-weight: 300; letter-spacing: 0.1em; color: rgba(255,255,255,0.25); }
+
+    /* Sticky mobile CTA */
+    .sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; background: var(--navy); padding: 14px 20px; text-align: center; }
+    .sticky-cta a { color: white; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; }
+
+    /* ANIMATIONS */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+    .fade-up-delay-4 { transition-delay: 0.4s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      nav { padding: 0 32px; }
+      .section-inner { padding: 80px 32px; }
+      .hero { padding: 120px 32px 100px; }
+      .hero-capacity { right: 32px; }
+      footer { padding: 48px 32px; }
+      .about .section-inner, .instructor .section-inner, .reserve .section-inner { grid-template-columns: 1fr; gap: 48px; }
+      .instructor .section-inner { grid-template-columns: 180px 1fr; }
+      .target-grid { grid-template-columns: 1fr 1fr; }
+      .learn-grid { grid-template-columns: 1fr 1fr; }
+      .program-layout { grid-template-columns: 1fr; gap: 48px; }
+      .notes-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .section-inner { padding: 60px 24px; }
+      .hero { padding: 100px 24px 100px; }
+      .hero-capacity { display: none; }
+      .target-grid { grid-template-columns: 1fr; }
+      .learn-grid { grid-template-columns: 1fr; }
+      .instructor .section-inner { grid-template-columns: 140px 1fr; gap: 28px; }
+      .instructor-bio { font-size: 13px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { padding: 40px 24px 100px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 32px; }
+      .footer-meta { text-align: left; }
+      .company-table th { width: 110px; font-size: 11px; }
+      .program-info-table th { width: 80px; font-size: 11px; }
+      .hero-geo { display: none; }
+      .nav-logo-img { height: 56px; }
+      nav { height: 84px; }
+      .pricing-table th, .pricing-table td { padding: 16px; }
+      .sticky-cta { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="images/logo.png" alt="ECHELON CONSULTING" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">研修について</a></li>
+    <li><a href="#program">開催概要</a></li>
+    <li><a href="#instructor">講師紹介</a></li>
+    <li><a href="#pricing">受講料</a></li>
+    <li><a href="#reserve" class="nav-contact">予約へ進む</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-geo">
+    <div class="hero-geo-bar"></div><div class="hero-geo-bar"></div><div class="hero-geo-bar"></div>
+  </div>
+  <div class="hero-inner">
+    <p class="hero-label fade-up">Strategic Management Game Seminar</p>
+    <h1 class="hero-title fade-up fade-up-delay-1">たった1日で、<br><em>3年分の経営</em>を体験する。</h1>
+    <p class="hero-sub fade-up fade-up-delay-2">戦略MG研修 ご案内</p>
+    <p class="hero-desc fade-up fade-up-delay-3">
+      数字が苦手でも、決算書が読めなくても大丈夫。<br>
+      あなた自身が経営者となり、資金調達・設備投資・意思決定を実践的に体感しながら、<br>
+      「会計は経営のルール・言語である」ことを体で学ぶ一日です。
+    </p>
+    <div class="hero-quickinfo fade-up fade-up-delay-3">
+      <span>2026年8月12日（水）10:00〜17:30</span>
+      <span>2026年9月12日（土）開催回もあり</span>
+      <span>東京都品川区西五反田</span>
+      <span>定員8名</span>
+    </div>
+    <div class="hero-cta fade-up fade-up-delay-4">
+      <a href="#reserve" class="btn-primary">
+        予約へ進む
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <a href="#about" class="btn-text">研修の詳細を見る</a>
+    </div>
+  </div>
+  <div class="hero-capacity fade-up fade-up-delay-4">
+    <div class="hero-capacity-num">8<span>名限定</span></div>
+    <div class="hero-capacity-label">定員になり次第締切</div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span class="hero-scroll-text">Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT MG -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="fade-up">
+      <p class="section-label">About Seminar</p>
+      <h2 class="section-title">経営シミュレーションゲーム<br>「戦略MG」とは</h2>
+      <div class="divider"></div>
+      <p class="about-text">
+        MG（マネジメントゲーム）は、参加者一人ひとりが経営者となり、原material仕入れから製造・販売・決算までの経営サイクルを、盤上のシミュレーションを通じて何期も繰り返し体験する研修プログラムです。<br><br>
+        頭で理解するのではなく、実際にお金を動かし、決算書を自分の手で作りながら「会計は経営のルール・言語である」ことを体感できるのが最大の特長です。<br><br>
+        初心者や数字が苦手な方でも、1日を通じて資金繰りの感覚と戦略的な意思決定力が自然と身についていきます。
+      </p>
+    </div>
+    <div class="about-stats">
+      <div class="about-stat fade-up fade-up-delay-1">
+        <div class="about-stat-num">10,000<span>社+</span></div>
+        <div class="about-stat-label">全国の企業で導入</div>
+      </div>
+      <div class="about-stat fade-up fade-up-delay-2">
+        <div class="about-stat-num">500<span>万人+</span></div>
+        <div class="about-stat-label">累計受講者数</div>
+      </div>
+      <div class="about-stat fade-up fade-up-delay-3">
+        <div class="about-stat-num">1,000<span>校+</span></div>
+        <div class="about-stat-label">全国の学校で授業採用</div>
+      </div>
+    </div>
+    <div class="about-banner fade-up fade-up-delay-2">
+      <img src="images/mg-guide.jpg" alt="経営シミュレーションゲームの戦略MGセミナー">
+    </div>
+  </div>
+</section>
+
+<!-- TARGET -->
+<section class="target">
+  <div class="section-inner">
+    <p class="section-label fade-up">For Whom</p>
+    <h2 class="section-title fade-up fade-up-delay-1">こんな方に<strong>おすすめです</strong></h2>
+    <div class="divider fade-up fade-up-delay-1"></div>
+    <div class="target-grid">
+      <div class="target-card fade-up">
+        <svg class="target-icon" viewBox="0 0 44 44" fill="none" stroke="#b8996a" stroke-width="1.3"><circle cx="22" cy="22" r="18"/><path d="M22 13v9l6 4"/></svg>
+        <div class="target-card-text">MG研修が<br>まったく初めての方</div>
+      </div>
+      <div class="target-card fade-up fade-up-delay-1">
+        <svg class="target-icon" viewBox="0 0 44 44" fill="none" stroke="#b8996a" stroke-width="1.3"><rect x="9" y="9" width="26" height="26" rx="2"/><path d="M15 22h14M15 28h9"/></svg>
+        <div class="target-card-text">数字や会計に<br>苦手意識がある方</div>
+      </div>
+      <div class="target-card fade-up fade-up-delay-2">
+        <svg class="target-icon" viewBox="0 0 44 44" fill="none" stroke="#b8996a" stroke-width="1.3"><path d="M12 32V18M22 32V10M32 32v-9"/><path d="M8 32h28"/></svg>
+        <div class="target-card-text">決算書の見方が<br>わからない方</div>
+      </div>
+      <div class="target-card fade-up fade-up-delay-3">
+        <svg class="target-icon" viewBox="0 0 44 44" fill="none" stroke="#b8996a" stroke-width="1.3"><path d="M22 6l4 8 9 1-6.5 6.5L30 30l-8-4.5L14 30l1.5-8.5L9 15l9-1z"/></svg>
+        <div class="target-card-text">経営者・経営幹部を<br>目指している方</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARN -->
+<section class="learn">
+  <div class="section-inner">
+    <p class="section-label fade-up">What You Gain</p>
+    <h2 class="section-title fade-up fade-up-delay-1">1日で身につく、<br><strong>3つの経営力</strong></h2>
+    <div class="divider fade-up fade-up-delay-1"></div>
+    <div class="learn-grid">
+      <div class="learn-card fade-up">
+        <img src="images/mg-scene3.jpg" class="learn-card-img" alt="資金繰り・キャッシュフロー感覚">
+        <div class="learn-card-body"><div class="learn-card-num">01</div><div class="learn-card-title">資金繰り・キャッシュフロー感覚</div><div class="learn-card-text">資金調達・設備投資・回収のサイクルを繰り返し体験することで、頭ではなく手で「お金の流れ」を掴みます。</div></div>
+      </div>
+      <div class="learn-card fade-up fade-up-delay-1">
+        <img src="images/mg-scene2.jpg" class="learn-card-img" alt="会計リテラシー">
+        <div class="learn-card-body"><div class="learn-card-num">02</div><div class="learn-card-title">会計リテラシー</div><div class="learn-card-text">「会計は経営のルール・言語」という考え方のもと、自ら決算書を作成しながら数字の意味を実感として理解します。</div></div>
+      </div>
+      <div class="learn-card fade-up fade-up-delay-2">
+        <img src="images/mg-scene1.jpg" class="learn-card-img" alt="戦略的思考と意思決定力">
+        <div class="learn-card-body"><div class="learn-card-num">03</div><div class="learn-card-title">戦略的思考と意思決定力</div><div class="learn-card-text">限られた資源の中でリスクを取り、都度の意思決定を積み重ねる経験を通じて、経営者としての判断軸を養います。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="program" id="program">
+  <div class="section-inner">
+    <p class="section-label fade-up">Program</p>
+    <h2 class="section-title fade-up fade-up-delay-1">開催概要と<strong>当日のスケジュール</strong></h2>
+    <div class="divider fade-up fade-up-delay-1"></div>
+    <div class="program-layout">
+      <table class="program-info-table fade-up fade-up-delay-2">
+        <tr><th>日時</th><td>
+          第1回：2026年8月12日（水）10:00〜17:30（受付開始 9:45）<br>
+          第2回：2026年9月12日（土）<br>
+          <span style="font-size:11px;color:var(--text-light);">※第2回の詳細な時間・会場は予約ページにてご確認ください</span>
+        </td></tr>
+        <tr><th>会場</th><td>東京都品川区西五反田3丁目6-20<br>いちご西五反田ビル3F<br>株式会社UBM WEALTH MANAGEMENT オフィス内<br><span style="font-size:11px;color:var(--text-light);">（第1回開催回の会場です）</span></td></tr>
+        <tr><th>定員</th><td>8名（定員になり次第締切）</td></tr>
+        <tr><th>対象</th><td>初心者大歓迎／数字が苦手な方／決算書がわからない方／経営者・経営幹部志向の方</td></tr>
+        <tr><th>主催</th><td>株式会社Echelon Consulting<br>（一社）企業成長戦略支援センター</td></tr>
+        <tr><th>講師</th><td>中川達也 氏（企業成長戦略支援センター常務理事）</td></tr>
+      </table>
+      <div class="timeline fade-up fade-up-delay-3">
+        <div class="timeline-item"><div class="timeline-time">9:45</div><div class="timeline-text"><strong>受付開始</strong></div></div>
+        <div class="timeline-item"><div class="timeline-time">10:00</div><div class="timeline-text"><strong>研修スタート</strong><br>ルール説明・第1期経営シミュレーション</div></div>
+        <div class="timeline-item"><div class="timeline-time">12:00</div><div class="timeline-text">昼休憩</div></div>
+        <div class="timeline-item"><div class="timeline-time">13:00</div><div class="timeline-text">経営シミュレーション（複数期）<br>資金調達・設備投資・決算演習</div></div>
+        <div class="timeline-item"><div class="timeline-time">17:00</div><div class="timeline-text">全体総括・振り返り<br>質疑応答</div></div>
+        <div class="timeline-item"><div class="timeline-time">17:30</div><div class="timeline-text"><strong>終了</strong></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section class="instructor" id="instructor">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="instructor-avatar">
+        <img src="images/nakagawa.jpg" alt="中川達也" class="instructor-avatar-img">
+      </div>
+      <div class="instructor-avatar-caption">TATSUYA NAKAGAWA</div>
+    </div>
+    <div class="instructor-content">
+      <p class="section-label fade-up">Instructor</p>
+      <div class="instructor-name fade-up fade-up-delay-1">中川 達也</div>
+      <div class="instructor-role fade-up fade-up-delay-1">（一社）企業成長戦略支援センター 常務理事</div>
+      <p class="instructor-bio fade-up fade-up-delay-2">
+        私たちの根本にあるのは「利よりも義」という精神です。ビジネスにおいて利益は重要ですが、それが全てではありません。お客様にとって本当に正しい選択とは何か。その問いに対して、嘘偽りなく、誠実に向き合い続けることが私たちの誇りです。<br><br>
+        短期的な数字の追求ではなく、お客様の人生という長い物語に寄り添う「伴走者」でありたいと考えています。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-inner">
+    <p class="section-label fade-up">Pricing</p>
+    <h2 class="section-title fade-up fade-up-delay-1">受講料</h2>
+    <div class="divider fade-up fade-up-delay-1"></div>
+    <table class="pricing-table fade-up fade-up-delay-2">
+      <thead><tr><th>区分</th><th>金額（税込）</th></tr></thead>
+      <tbody>
+        <tr><td>初参加者</td><td class="price-cell">27,500<span>円</span></td></tr>
+        <tr><td>2回目以降</td><td class="price-cell">16,500<span>円</span></td></tr>
+        <tr><td>会員</td><td class="price-cell">3,300<span>円</span></td></tr>
+        <tr><td>テキスト</td><td class="price-cell">2,200<span>円</span></td></tr>
+        <tr><td colspan="2">※テキストは別売です。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- NOTES -->
+<section class="notes">
+  <div class="section-inner">
+    <p class="section-label fade-up">Application</p>
+    <h2 class="section-title fade-up fade-up-delay-1">お申込みにあたって</h2>
+    <div class="divider fade-up fade-up-delay-1"></div>
+    <div class="notes-grid">
+      <div class="fade-up fade-up-delay-2">
+        <div class="notes-block-title">お支払い方法</div>
+        <ul class="notes-list">
+          <li>銀行振込：PayPay銀行 ビジネス営業部 普通4930053</li>
+          <li>クレジットカード決済：Stripeによるオンライン決済</li>
+          <li>入金確認をもってお申込み確定となります</li>
+          <li>入金期限：お申込みメール到着後3営業日以内（開催直前のお申込みは即日）</li>
+        </ul>
+      </div>
+      <div class="fade-up fade-up-delay-3">
+        <div class="notes-block-title">キャンセルポリシー</div>
+        <ul class="notes-list">
+          <li>開催3日前以降のキャンセルは受講料の100%を申し受けます</li>
+          <li>未入金のまま当日欠席された場合も受講料の100%を申し受けます</li>
+          <li>定員8名になり次第、受付を締め切らせていただきます</li>
+        </ul>
+        <div class="notes-warning"><strong>ご注意：</strong>定員に限りがございます。ご検討中の方はお早めにお申込みください。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY -->
+<section class="company" id="company">
+  <div class="section-inner">
+    <p class="section-label fade-up">Organizer</p>
+    <h2 class="section-title fade-up fade-up-delay-1">主催者について</h2>
+    <div class="divider fade-up fade-up-delay-1"></div>
+    <table class="company-table fade-up fade-up-delay-2">
+      <tr><th>主催</th><td>株式会社Echelon Consulting／（一社）企業成長戦略支援センター</td></tr>
+      <tr><th>代表取締役</th><td>飯田 慎之介</td></tr>
+      <tr><th>事業内容</th><td>ウェルスマネジメント（個人）、コーポレートファイナンス（法人）、ファミリーオフィス（富裕層）</td></tr>
+      <tr><th>所在地</th><td>〒108-0074 東京都港区高輪三丁目23-6 パイパー高輪708</td></tr>
+      <tr><th>お問い合わせ</th><td>
+        （一社）企業成長戦略支援センター：<a href="mailto:info@bgssc.org" style="color:var(--navy);text-decoration:none;">info@bgssc.org</a><br>
+        ㈱Echelon Consulting：<a href="mailto:nakagawa@compassion-c.com" style="color:var(--navy);text-decoration:none;">nakagawa@compassion-c.com</a>
+      </td></tr>
+    </table>
+    <div class="company-logo-row fade-up fade-up-delay-3">
+      <img src="images/logo.png" alt="ECHELON CONSULTING">
+      <div class="company-logo-row-text">法人・富裕層向けに財務・資産コンサルティングを行う<br>独立系ファイナンシャルアドバイザリー企業です。</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVE -->
+<section class="reserve" id="reserve">
+  <div class="section-inner">
+    <div>
+      <p class="section-label fade-up">Reservation</p>
+      <h2 class="section-title fade-up fade-up-delay-1"><strong>予約へ進む</strong></h2>
+      <div class="divider fade-up fade-up-delay-1"></div>
+      <p class="reserve-copy fade-up fade-up-delay-2">
+        ご希望の開催日・参加区分を選び、予約ページへお進みください。<br>
+        予約ページにて必要事項をご入力のうえお申込みいただくと、事務局より入金方法のご案内をお送りいたします。<br>
+        入金確認をもって正式にお申込み確定となります。
+      </p>
+      <div class="reserve-info fade-up fade-up-delay-3">
+        <div class="reserve-info-item"><span class="reserve-info-label">定員</span><span>各回8名（定員になり次第締切）</span></div>
+        <div class="reserve-info-item"><span class="reserve-info-label">MAIL</span><a href="mailto:info@bgssc.org" style="color:var(--text-mid);text-decoration:none;font-size:13px;font-weight:300;">info@bgssc.org</a></div>
+      </div>
+    </div>
+    <div class="reserve-links fade-up fade-up-delay-2">
+      <div class="reserve-link-card">
+        <div>
+          <div class="reserve-link-date">2026年8月12日（水）開催</div>
+          <div class="reserve-link-type">初参加の方</div>
+        </div>
+        <a href="https://senryakushien.jp/p/r/j2B7TWOJ" target="_blank" rel="noopener" class="btn-submit-link">予約ページへ進む
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+        </a>
+      </div>
+      <div class="reserve-link-card">
+        <div>
+          <div class="reserve-link-date">2026年9月12日（土）開催</div>
+          <div class="reserve-link-type">初参加の方</div>
+        </div>
+        <a href="https://senryakushien.jp/p/r/4oT9HJE1" target="_blank" rel="noopener" class="btn-submit-link">予約ページへ進む
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+        </a>
+      </div>
+      <div class="reserve-link-card">
+        <div>
+          <div class="reserve-link-date">2026年9月12日（土）開催</div>
+          <div class="reserve-link-type">2回目以降参加の方</div>
+        </div>
+        <a href="https://senryakushien.jp/p/r/uJuJH46N" target="_blank" rel="noopener" class="btn-submit-link">予約ページへ進む
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+        </a>
+      </div>
+      <p class="form-note">ご不明な点がございましたら、お申込み前にお気軽にメールにてお問い合わせください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="images/logo.png" alt="ECHELON CONSULTING" class="footer-logo-img">
+    </div>
+    <div class="footer-meta">
+      <div class="footer-address">〒108-0074 東京都港区高輪三丁目23-6 パイパー高輪708<br>主催：株式会社Echelon Consulting／（一社）企業成長戦略支援センター</div>
+      <div class="footer-copy">&copy; 2026 Echelon Consulting Inc. All Rights Reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="#reserve">予約へ進む &rarr;</a>
+</div>
+
+<script>
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    if (links.style.display === 'flex') { links.style.display = ''; return; }
+    Object.assign(links.style, { display:'flex', flexDirection:'column', position:'absolute', top:'76px', left:'0', right:'0', background:'var(--warm-white)', padding:'24px 32px', gap:'24px', borderBottom:'1px solid var(--border)' });
+  }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.hero .fade-up').forEach(el => setTimeout(() => el.classList.add('visible'), 100));
+  });
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.background = window.scrollY > 60 ? 'rgba(250,249,247,0.97)' : 'rgba(250,249,247,0.92)';
+  });
+</script>
+</body>
+</html>
